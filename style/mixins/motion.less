@@ -1,0 +1,9 @@
+// 缓动：animation、transform、tansition
+// ------------------------------------
+
+@import "../themes/index";
+
+// 变换，默认属性 all，默认间隔时间 0.3s，默认函数 ease-out
+.transition(@property: all, @duration: @motion-duration-default, @func: @motion-func-default) {
+  transition+: @property @duration @func 0s;
+}

@@ -1,0 +1,104 @@
+@import './themes/index';
+@import './mixins/index';
+@import '~normalize.css';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// 设置页面的字体大小，基准值，所有的单位都是根据这个值进行计算的
+// 当 calc 不兼容的时候，迫不得已使用这个
+@media screen and (min-width: 320px) {
+	html {
+		font-size: 8.5333333px;
+	}
+}
+@media screen and (min-width: 360px) {
+	html {
+		font-size: 9.6px;
+	}
+}
+@media screen and (min-width: 375px) {
+	html {
+		font-size: 10px;
+	}
+}
+@media screen and (min-width: 400px) {
+	html {
+		font-size: 10.6666667px;
+	}
+}
+@media screen and (min-width: 440px) {
+	html {
+		font-size: 11.7333333px;
+	}
+}
+@media screen and (min-width: 480px) {
+	html {
+		font-size: 12.8px;
+	}
+}
+@media screen and (min-width: 640px) {
+	html {
+		font-size: 17.0666667px;
+	}
+}
+
+html {
+  font-size: calc(100vw/37.5);
+
+  -webkit-font-size: calc(100vw/37.5);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  .square(100%);
+}
+
+body {
+  background-color: @body-bg;
+  color: @body-color;
+  font-size: @body-font-size;
+  font-family: @body-font-family;
+  line-height: @body-line-height;
+
+  -webkit-touch-callout: none;
+  user-select: none;
+  scroll-behavior: smooth;
+  .square(100%);
+}
+
+a {
+  color: #108ee9;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+}
+
+.@{prefix}clearfix {
+  .clearfix();
+}
+
+.@{prefix}default {
+  color: @default-color;
+}
+.@{prefix}primary {
+  color: @primary-color;
+}
+.@{prefix}success {
+  color: @success-color;
+}
+.@{prefix}warning {
+  color: @warning-color;
+}
+.@{prefix}error {
+  color: @error-color;
+}
+.@{prefix}secondary {
+  color: @text-secondary-color;
+}
+.@{prefix}disabled {
+  color: @text-disabled-color;
+}

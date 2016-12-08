@@ -1,0 +1,15 @@
+// 截断超出文字，使用 `...` 代替
+// 包含文字的容器必须是块级元素
+.cut-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文字超出容器，使用 `...` 代替
+.cut-text-multi(@line: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+  overflow: hidden;
+}

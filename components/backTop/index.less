@@ -1,0 +1,27 @@
+@import '../../style/index.less';
+
+.@{prefix}back-top {
+  position: fixed;
+  bottom: 50px;
+  width: 40px;
+  height: 40px;
+  right: 100px;
+  z-index: 10;
+  cursor: pointer;
+
+  &-content {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: rgba(64, 64, 64, 0.4);
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  &-icon {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+

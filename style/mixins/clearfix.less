@@ -1,0 +1,13 @@
+// 清除浮动
+.clearfix() {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    visibility: hidden;    clear: both;    height: 0;
+    font-size: 0;
+  }
+}

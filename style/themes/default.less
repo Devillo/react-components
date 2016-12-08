@@ -1,0 +1,105 @@
+// 默认主题：蓝色。
+
+
+// 样式类前缀：hekr-design-mobile 的缩写，
+// 之所以考虑使用前缀，是因为可能更改项目名称。
+// ---------------------------------------
+
+@prefix: fly-;
+
+
+// 颜色。
+// -----
+
+// 主题颜色。
+@primary-color: #29b6f6; // 主色
+@success-color: #64dd17; // 成功色
+@warning-color: #ff9e00; // 警告色
+@error-color: #f4511e;   // 错误色
+@default-color: #333;    // 默认色
+
+// 文字颜色。
+@text-primary-color: #333;
+@text-secondary-color: #a1a1a1;
+@text-disabled-color: #d4d4d4;
+
+// 线条颜色。
+@border-primary-color: #a1a1a1;
+@border-secondary-color: #d4d4d4;
+@border-disabled-color: #eaeaea;
+
+// 主体背景颜色。
+@main-background-color: #ecf1f3;
+
+// 组件背景颜色。
+@component-background-color: #fff;
+
+// 蓝色背景渐变色。
+@gradient-begin-color: #06a4f0;
+@gradient-end-color: #0048e1;
+
+
+// 字体相关：字符集、字体大小、行高。
+// ------------------------------
+
+// 默认字符集。
+@font-family-default: -apple-system, "San Francisco", "Roboto", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Noto Sans", "Droid Sans Fallback", "Microsoft Yahei";
+
+// 字体大小。
+@font-size-default: 16px;
+@font-size-s: @font-size-default - 2px; // 14px
+@font-size-xs: @font-size-s - 2px;      // 12px
+@font-size-xxs: @font-size-xs - 2px;    // 10px
+@font-size-l: @font-size-default + 2px; // 18px
+@font-size-xl: @font-size-l + 2px;      // 20px
+@font-size-xxl: @font-size-xl + 4px;    // 24px
+
+// 行高
+@line-height-default: 1.25; // 16px × 1.25 = 20px
+
+
+// 圆角。组件的设计要显得高大上一点就不能过度使用圆角，
+// 像 ant-design 的圆角设计真的是 low 得不能再 low 了。
+// 所以，在 hekr-design-mobile 中，只使用一种圆角形式。
+// ------------------------------------------------
+@border-radius-default: 2px;
+
+
+// 投影。设置这个变量是为了投影的一致性，
+// 整套设计中，强制使用这种投影方式。
+// ---------------------------------
+@box-shadow-default: 0 1px 2px rgba(0, 0, 0, .15);
+
+
+// 间距。上下边距和左右边距通用一套边距变量。
+// -------------------------------------
+@space-default: 8px;
+@space-s: @space-default / 2; // 4px
+@space-l: @space-default * 2; // 16px
+
+
+// 动画缓动公式和时间。
+// -----------------
+@motion-func-default: cubic-bezier(.35,0,.25,1);
+@motion-duration-default: 0.15s;
+
+
+// 层级（以 500 为基础，50 为步进）。由于组件的复杂性，层级也变得比较复杂。
+// 界面容器、下拉刷新、title 栏、渐变背景和底层背景暂时不知道如何在技术上去实现，
+// 需要在实际编码时测试。所以现在只能定义元组件（在需求上不能在细分的组件）的层级。
+// ------------------------------------------------------------------------
+@default-z-index: 500;
+@header-z-index: @default-z-index + 50;   // 头部
+@dropdown-z-index: @header-z-index + 50;  // 下拉菜单
+@dialog-z-index: @dropdown-z-index + 50;  // 对话框
+@toast-z-index: @dialog-z-index + 50;     // 提示框
+
+
+// 全局样式。
+// --------
+@body-bg: @main-background-color;
+@body-color: @text-primary-color;
+@body-font-size: @font-size-default;
+@body-font-family: @font-family-default;
+@body-line-height: @line-height-default;
+

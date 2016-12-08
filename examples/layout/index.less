@@ -1,0 +1,35 @@
+.layout {
+  background-color: #ececec;
+  &__header {
+    padding: 0 10px;
+    text-align: center;
+    padding: 24px 0;
+    border-bottom: 1px solid white;
+    background-color: white;
+    margin-bottom: 50px;
+    &__toggle {
+      float: right;
+    }
+  }
+
+  &__body {
+    display: flex;
+    width: 92%;
+    min-height: 2000px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, .15);
+
+    &__content {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      &__space {
+        padding: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,253 @@
+@import '../../../style/index.less';
+
+/* 栅格分为24列 */
+@index: 24;
+
+
+/**
+ * 栅格循环输出css
+ * @param  {Number} @index 当前栅格index
+ */
+.make-cols(@index) {
+  @count: @index;
+
+  .make-columns(@index, @count) when(@index > 0) {
+
+    > .@{prefix}col-@{index} {
+      float: left;
+      flex: 0 0 auto;
+    }
+    
+    > .@{prefix}col-@{index} {
+      display: block;
+      width: 100% / @count * @index;
+    }
+
+    > .@{prefix}col-offset-@{index} {
+      margin-left: 100% / @count * @index;
+    }
+
+    > .@{prefix}col-push-@{index} {
+      left: 100% / @count * @index;
+    }
+
+    > .@{prefix}col-pull-@{index} {
+      right: 100% / @count * @index;
+    }
+
+    > .@{prefix}col-@{index} {
+      position: relative;
+      min-height: 1px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .make-columns(@index - 1, @count);
+  }
+  .make-columns(@index, @index);
+}
+
+/* 栅格比例样式 */
+.@{prefix}row {
+  .make-cols(@index);
+}
+
+/* 栅格清除浮动 */
+.@{prefix}row:before, .@{prefix}row:after {
+  content: "  ";
+  display: table;
+}
+.@{prefix}row:after {
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+/* 栅格flex布局样式 */
+.make-orders(@index) {
+  @count: @index;
+
+  .make-order(@index, @count) when(@index > 0) {
+
+    > .@{prefix}col-order-@{index} {
+      order: @index;
+    }
+
+    .make-order(@index - 1, @count);
+  }
+
+  .make-order(@index, @index);
+}
+
+.@{prefix}row-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .make-cols(@index);
+  .make-orders(@index);
+}
+
+
+/* flux布局下水平排列 */
+.@{prefix}row-flex-start {
+  justify-content: flex-start;
+}
+
+.@{prefix}row-flex-center {
+  justify-content: center;
+}
+
+.@{prefix}row-flex-end {
+  justify-content: flex-end;
+}
+
+.@{prefix}row-flex-space-between {
+  justify-content: space-between;
+}
+
+.@{prefix}row-flex-space-around {
+  justify-content: space-around;
+}
+
+
+/* flux布局下垂直排列 */
+.@{prefix}row-flex-top {
+  align-items: flex-start;
+}
+
+.@{prefix}row-flex-middle {
+  align-items: center;
+}
+
+.@{prefix}row-flex-bottom {
+  align-items: flex-end;
+}
+
+/* 响应式布局 */
+.make-response-xs(@index) {
+  @count: @index;
+
+  .make-response(@index, @count) when(@index > 0) {
+
+    .@{prefix}col-xs-@{index} {
+      float: left;
+      flex: 0 0 auto;
+    }
+
+    .@{prefix}col-xs-@{index} {
+      display: block;
+      width: 100% / @count * @index;
+    }
+
+    .@{prefix}col-xs-offset-@{index} {
+      margin-left: 100% / @count * @index;
+    }
+
+    .make-response(@index - 1, @count);
+  }
+
+  .make-response(@index, @index);
+}
+
+.make-response-sm(@index) {
+  @count: @index;
+
+  .make-response(@index, @count) when(@index > 0) {
+
+    .@{prefix}col-sm-@{index} {
+      float: left;
+      flex: 0 0 auto;
+    }
+
+    .@{prefix}col-sm-@{index} {
+      display: block;
+      width: 100% / @count * @index;
+    }
+
+    .@{prefix}col-sm-offset-@{index} {
+      margin-left: 100% / @count * @index;
+    }
+    
+    .make-response(@index - 1, @count);
+  }
+
+  .make-response(@index, @index);
+}
+
+.make-response-md(@index) {
+  @count: @index;
+
+  .make-response(@index, @count) when(@index > 0) {
+
+    .@{prefix}col-md-@{index} {
+      float: left;
+      flex: 0 0 auto;
+    }
+
+    .@{prefix}col-md-@{index} {
+      display: block;
+      width: 100% / @count * @index;
+    }
+
+    .@{prefix}col-md-offset-@{index} {
+      margin-left: 100% / @count * @index;
+    }
+
+    .make-response(@index - 1, @count);
+  }
+
+  .make-response(@index, @index);
+}
+
+.make-response-lg(@index) {
+  @count: @index;
+
+  .make-response(@index, @count) when(@index > 0) {
+
+    .@{prefix}col-lg-@{index} {
+      float: left;
+      flex: 0 0 auto;
+    }
+
+    .@{prefix}col-lg-@{index} {
+      display: block;
+      width: 100% / @count * @index;
+    }
+
+    .@{prefix}col-lg-offset-@{index} {
+      margin-left: 100% / @count * @index;
+    }
+
+    .make-response(@index - 1, @count);
+  }
+
+  .make-response(@index, @index);
+}
+
+.@{prefix}row {
+  .make-response-xs(@index)
+}
+
+@media (min-width: 768px) {
+  .@{prefix}row {
+    .make-response-sm(@index)
+  }
+}
+
+@media (min-width: 992px) {
+  .@{prefix}row {
+    .make-response-md(@index)
+  }
+}
+
+@media (min-width: 1200px) {
+  .@{prefix}row {
+    .make-response-lg(@index)
+  }
+}
+
+
+
+
+

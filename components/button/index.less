@@ -1,0 +1,130 @@
+@import '../../style/index.less';
+
+.@{prefix}btn {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid transparent;
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+  line-height: 1.5;
+  border-radius: 4px;
+  padding: 4px 15px;
+  color: #666;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) initial;
+
+  /**
+   * 按钮类型
+   *
+   * &-primary 主按钮
+   * &-default 次按钮 默认按钮 即btn样式
+   * &-ghost 幽灵按钮
+   * &-dashed 虚线按钮
+   */
+  &-primary {
+    background-color: #108ee9;
+    color: #fff;
+    border-color: #108ee9;
+  }
+
+  &-ghost {
+    background-color: transparent;
+    color: #666;
+    border-color: #d9d9d9;
+  }
+
+  &-dashed {
+    background-color: transparent;
+    color: #666;
+    border-color: #d9d9d9;
+    border-style: dashed;
+  }
+
+  /**
+   * 按钮大小
+   *
+   * &-lg 大按钮
+   * &-default 中按钮 默认按钮 即btn大小
+   * &-sm 小按钮
+   */
+  &-lg {
+    padding: 4px 15px 5px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  &-sm {
+    padding: 1px 7px;
+    font-size: 12px;
+    border-radius: 2px;
+  }
+
+  /**
+   * 按钮选中 || hover || focus
+   *
+   * &-primary&-pressing 主按钮选中
+   * &-pressing 其他按钮选中 
+   */
+  &-pressing {
+    background-color: transparent;
+    color: #108ee9;
+    border-color: #108ee9;
+  }
+
+  &-primary&-pressing {
+    background-color: #40a5ed;
+    color: #fff;
+    border-color: #40a5ed;
+  }
+
+  /**
+   * 按钮禁用
+   *
+   * &-disabled 按钮禁用
+   */
+  &-disabled {
+    color: #ccc!important;
+    background-color: #f7f7f7!important;
+    border-color: #d9d9d9!important;
+  }
+
+  /**
+   * 按钮加在
+   *
+   * &-loading 按钮加载
+   */
+  &-loading {
+
+  }
+  &-loading > .@{prefix}icon {
+    display: inline-block;
+    animation:rotate 1s infinite linear;
+    transform-origin: 50% 50%;
+  }
+  @-moz-keyframes rotate{
+    0%{
+      -moz-transform:rotate(0deg);
+     }
+     100%{
+       -moz-transform:rotate(360deg);
+     }
+  }
+  @-webkit-keyframes rotate{
+    0%{
+      -webkit-transform:rotate(0deg);
+     }
+     100%{
+       -webkit-transform:rotate(360deg);
+     }
+  }
+  @keyframes rotate{
+    0%{
+      transform:rotate(0deg);
+     }
+     100%{
+       transform:rotate(360deg);
+     }
+  }
+}
