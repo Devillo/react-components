@@ -35,6 +35,12 @@ class SideNav extends Component {
           <li>
             <Link to="/breadcrumb" activeClassName="side-nav-active"><strong>6.</strong>Breadcrumb 面包屑导航</Link>
           </li>
+          <li>
+            <Link to="/menu" activeClassName="side-nav-active"><strong>7.</strong>Menu 导航菜单</Link>
+          </li>
+          <li>
+            <Link to="/imageBox" activeClassName="side-nav-active"><strong>8.</strong>ImageBox 图片预览</Link>
+          </li>
         </ul>
       </div>
     );

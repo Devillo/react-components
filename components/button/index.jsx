@@ -50,8 +50,6 @@ const BUTTON_DISABLED = BUTTON_CLASS + '-disabled';
  * @param {Bool} loading 是否启用加载按钮
  */
 const BUTTON_LOADING = BUTTON_CLASS + '-loading';
-
-
 /**
  * button props类型验证
  *

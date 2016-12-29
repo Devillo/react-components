@@ -1,0 +1,86 @@
+.hekr-image-box {
+    position: relative;
+    height: 100%;
+}
+.hekr-image-box-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: all .5s ease;
+}
+
+.hekr-image-box-item {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.hekr-image-box-content {
+    overflow: hidden;
+    height: 100%;
+}
+
+.hekr-image-box-footer {
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+.hekr-image-box-btn {
+    position: absolute;
+    width: 50px;
+    height: 50%;
+    border-radius: 10px;
+    top: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > i {
+        font-size: 50px;
+    }
+
+    &.hekr-image-box-btn-hide{
+        display: none;
+    }
+}
+
+.hekr-image-box-btn-left {
+    left: 10px;
+}
+
+.hekr-image-box-btn-right {
+    right: 10px;
+}
+
+.hekr-image-box-sub {
+    display: inline-block;
+    padding: 0 100px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.hekr-image-box-item > img {
+    max-height: 500px;
+    max-width: 500px;
+}
+
+.modal-right-btn > i {
+    font-size: 25px;
+    float: right;
+    cursor: pointer;
+}
+
+.modal-body {
+    overflow: hidden;
+}
+
+.modal-footer {
+    text-align: center;
+}

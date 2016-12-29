@@ -11,8 +11,8 @@ class ButtonExample extends Component {
     super(props);
     
     this.state = {
-      powerIcon: "\ue718",
-      loadingIcon: "\ue79a",
+      powerIcon: "\ue6b2",
+      loadingIcon: "\ue94b",
       loading: false
     }
 
@@ -61,18 +61,18 @@ class ButtonExample extends Component {
         <div>
           <h4>含iconfont的按钮</h4>
           <Button type="primary">
-            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe718;"></Icon>
+            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe6b2;"></Icon>
             开关
           </Button>
         </div>
         <div>
           <h4>含加载样式的按钮</h4>
           <Button type="primary" loading>
-            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe79a;"></Icon>
+            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe94b;"></Icon>
             <span>loading</span>
           </Button>
           <Button type="primary" loading disabled>
-            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe79a;"></Icon>
+            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe94b;"></Icon>
             <span>loading</span>
           </Button>
           <br/>

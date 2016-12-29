@@ -12,6 +12,8 @@ import DemoBox from './demoBox';
 import Affix from './affix';
 import BackTop from './backTop';
 import Breadcrumb from './breadcrumb';
+import Menu from './menu';
+import ImageBox from './imageBox';
 
 export {
   Button,
@@ -21,5 +23,7 @@ export {
   DemoBox,
   Affix,
   BackTop,
-  Breadcrumb
+  Breadcrumb,
+  Menu,
+  ImageBox
 }; 

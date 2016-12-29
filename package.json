@@ -40,6 +40,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "normalize.css": "^5.0.0",
-    "object-assign": "^4.1.0"
+    "object-assign": "^4.1.0",
+    "underscore": "1.8.3"
   }
 }

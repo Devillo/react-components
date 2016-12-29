@@ -99,7 +99,7 @@ class Col extends Component {
 
   componentDidMount() {
     const gutter = this.context.gutter;
-    this.state({
+    this.setState({
       gutter: gutter
     });
   }
