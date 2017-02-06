@@ -11,11 +11,42 @@ class MenuExample extends Component {
     
     this.state = {
       selectedKeys: ["setting:1"],
-      openKeys: ['a', 'b'],
+      openKeys: [],
       defaultSelectedKeys: ['a']
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.onOpenChange = this.onOpenChange.bind(this);
+    this.getAncestorKeys = this.getAncestorKeys.bind(this);
+  }
+
+  onOpenChange(openKeys) {
+    const state = this.state;
+    //const latestOpenKey = openKeys.find(key => !(state.openKeys.indexOf(key) > -1));
+    const latestOpenKey = openKeys.find(key => {
+      return !state.openKeys.indexOf(key) > -1;
+    })
+    //const latestCloseKey = state.openKeys.find(key => !(openKeys.indexOf(key) > -1));
+    const latestCloseKey = state.openKeys.find(key => {
+      return openKeys.indexOf(key) > -1;
+    })
+
+    let nextOpenKeys = [];
+    if (latestOpenKey) {
+      nextOpenKeys = this.getAncestorKeys(latestOpenKey).concat(latestOpenKey);
+    }
+    if (latestCloseKey) {
+      nextOpenKeys = this.getAncestorKeys(latestCloseKey);
+    }
+
+    this.setState({ openKeys: ["b"] });
+  }
+
+  getAncestorKeys(key) {
+    const map = {
+      d: ['b'],
+    };
+    return map[key] || [];
   }
 
 
@@ -59,6 +90,7 @@ class MenuExample extends Component {
             style={{ width: 240 }}
             selectedKeys={selectedKeys}
             openKeys={ openKeys }
+            onOpenChange={ this.onOpenChange }
             mode="inline"
           >
             <SubMenu menuKey="a" title={<span><Icon family="iconfont" style={ { marginRight: '8px' } } unicode="&#xe7c4;" /><span>Navigation One</span></span>}>
@@ -74,7 +106,7 @@ class MenuExample extends Component {
             <SubMenu menuKey="b" title={<span><Icon family="iconfont" style={ { marginRight: '8px' } } unicode="&#xe7c4;" /><span>Navigation Two</span></span>}>
               <Menu.Item menuKey="5">Option 5</Menu.Item>
               <Menu.Item menuKey="6">Option 6</Menu.Item>
-              <SubMenu  title="Submenu">
+              <SubMenu menuKey="d"  title="Submenu">
                 <Menu.Item menuKey="7">Option 7</Menu.Item>
                 <Menu.Item menuKey="8">Option 8</Menu.Item>
               </SubMenu>

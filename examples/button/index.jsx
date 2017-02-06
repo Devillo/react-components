@@ -68,7 +68,7 @@ class ButtonExample extends Component {
         <div>
           <h4>含加载样式的按钮</h4>
           <Button type="primary" loading>
-            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe94b;"></Icon>
+            <Icon family="iconfont" style={{marginRight: '10px'}} unicode="&#xe8f5;"></Icon>
             <span>loading</span>
           </Button>
           <Button type="primary" loading disabled>

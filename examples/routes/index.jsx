@@ -17,6 +17,9 @@ import BackTop from '../backtop'; // 回到顶部
 import Breadcrumb from '../breadcrumb';  // 面包屑导航
 import Menu from '../Menu'; // 导航菜单
 import ImageBox from '../imageBox'; // 图片选择
+import Switch from '../switch'; // 开关
+import Pagination from '../pagination'; // 分页
+import Select from '../select';
 
 export default (
   <Router history={browserHistory}>
@@ -31,6 +34,9 @@ export default (
       <Route path="/breadcrumb" component={ Breadcrumb } />
       <Route path="/Menu" component={ Menu } />
       <Route path="/ImageBox" component={ ImageBox } />
+      <Route path="/Switch" component={ Switch } />
+      <Route path="/Pagination" component={ Pagination } />
+      <Route path="/Select" component={ Select } />
     </Route>
   </Router>
 );

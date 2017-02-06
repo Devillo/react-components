@@ -36,13 +36,17 @@ const MENU_MODE_INLINE = MENU_CLASS + '-inline';
  * @param {String} theme 主题颜色
  * @param {String} mode 菜单类型
  * @param {Array} selectedKey 当前选中的菜单项 key 数组
+ * @param {Array} defaultSelectedKeys 默认选中的菜单项
+ * @param {Func} onClick item点击事件
+ * @param {Func} onOpenChange 关闭或打开submenu事件
  */
 const propTypes = {
   theme: React.PropTypes.string,
   mode: React.PropTypes.string,
   selectedKeys: React.PropTypes.array,
   defaultSelectedKeys: React.PropTypes.array,
-  onClick: React.PropTypes.func
+  onClick: React.PropTypes.func,
+  onOpenChange: React.PropTypes.func
 };
 
 /**
@@ -68,7 +72,8 @@ const childContextTypes = {
   defaultSelectedKeys: React.PropTypes.array,
   openKeys: React.PropTypes.array,
   mode: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  onClick: React.PropTypes.func,
+  onOpenChange: React.PropTypes.func
 };
 
 
@@ -93,12 +98,13 @@ class Menu extends Component {
       defaultSelectedKeys: this.state.defaultSelectedKeys,
       openKeys: this.state.openKeys,
       mode: this.props.mode,
-      onClick: this.props.onClick
+      onClick: this.props.onClick,
+      onOpenChange: this.props.onOpenChange
     }
   }
 
   render() {
-    const { className, theme, mode, selectedKeys, defaultSelectedKeys, openKeys, children, onClick, ...rest } = this.props;
+    const { className, theme, mode, selectedKeys, defaultSelectedKeys, onOpenChange, openKeys, children, onClick, ...rest } = this.props;
     const classes = classnames(MENU_CLASS, className, {
       [MENU_COLOR_LIGHT]: theme === 'light',
       [MENU_COLOR_DARK]: theme === 'dark',

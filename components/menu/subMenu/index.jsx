@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { CLASS_PREFIX } from '../../configs';
 import '../index.less';
 import _ from 'underscore';
+import isFunction from '../../_utils/isFunction';
 
 /* 子菜单基本样式 */
 const MENU_SUBMENU_CLASS = CLASS_PREFIX + 'menu-submenu';
@@ -35,7 +36,8 @@ const MENU_SUBMENU_MODE_INLINE = MENU_SUBMENU_CLASS + '-inline';
 const contextTypes = {
   selectedKeys: React.PropTypes.array,
   openKeys: React.PropTypes.array,
-  mode: React.PropTypes.string
+  mode: React.PropTypes.string,
+  onOpenChange: React.PropTypes.func
 };
 
 class SubMenu extends Component {
@@ -48,7 +50,6 @@ class SubMenu extends Component {
       isActive: false,
       isOpen: false,
       isClose: false,
-      opening: false,
       menuKeys: []
     };
 
@@ -78,7 +79,6 @@ class SubMenu extends Component {
     this.setState({
       mode: mode,
       isShow: openKeys.indexOf(menuKey) != -1,
-      opening: openKeys.indexOf(menuKey) != -1,
       menuKeys: menuKeys
     });
   }
@@ -93,7 +93,6 @@ class SubMenu extends Component {
       offsetHeight = self.refs.subMenuUl.offsetHeight;
     }
     self.setState({
-      opening: !isShow,
       isShow: isShow ? isShow : !isShow,
       isOpen: !isShow,
       isClose: isShow
@@ -130,6 +129,15 @@ class SubMenu extends Component {
         }, 100);
       }
     });
+    
+    // onOpenChange 事件回调
+    const onOpenChange = this.context.onOpenChange;
+    const openKeys = this.context.openKeys;
+    const menuKey = this.props.menuKey;
+    isShow ? openKeys.splice(openKeys.indexOf(menuKey), 1) : openKeys.push(menuKey);
+    if(isFunction(onOpenChange)) {
+      onOpenChange(openKeys);
+    }
   }
 
   handleDown() {
@@ -185,7 +193,7 @@ class SubMenu extends Component {
 
   render() {
     const { className, title, menuKey, disabled, children, ...rest } = this.props;
-    const { mode, opening, isShow, isActive, isOpen, isClose, menuKeys } = this.state;
+    const { mode, isShow, isActive, isOpen, isClose, menuKeys } = this.state;
 
     // 当前模式
     const ISHORIZONTAL = mode === 'horizontal';
@@ -195,6 +203,10 @@ class SubMenu extends Component {
     // 计算当前选中对象是否存在于该submenu中
     const selectedKeys = this.context.selectedKeys;
     let isSelected = _.difference(menuKeys, selectedKeys).length != menuKeys.length
+
+    // 计算当前子菜单是否打开
+    const openKeys = this.context.openKeys;
+    let opening = openKeys.indexOf(menuKey) > -1;
     const classes = classnames(MENU_SUBMENU_CLASS, {
       [MENU_SUBMENU_MODE_VERTICAL]: ISVERTICAL,
       [MENU_SUBMENU_MODE_HORIZONTAL]: ISHORIZONTAL,

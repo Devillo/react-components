@@ -14,6 +14,9 @@ import BackTop from './backTop';
 import Breadcrumb from './breadcrumb';
 import Menu from './menu';
 import ImageBox from './imageBox';
+import Switch from './switch';
+import Pagination from './pagination';
+import Select from './select';
 
 export {
   Button,
@@ -25,5 +28,8 @@ export {
   BackTop,
   Breadcrumb,
   Menu,
-  ImageBox
+  ImageBox,
+  Switch,
+  Pagination,
+  Select
 }; 

@@ -41,6 +41,15 @@ class SideNav extends Component {
           <li>
             <Link to="/imageBox" activeClassName="side-nav-active"><strong>8.</strong>ImageBox 图片预览</Link>
           </li>
+          <li>
+            <Link to="/switch" activeClassName="side-nav-active"><strong>9.</strong>Switch 开关</Link>
+          </li>
+          <li>
+            <Link to="/pagination" activeClassName="side-nav-active"><strong>10.</strong>Pagination 分页</Link>
+          </li>
+          <li>
+            <Link to="/select" activeClassName="side-nav-active"><strong>11.</strong>Select 选择框</Link>
+          </li>
         </ul>
       </div>
     );

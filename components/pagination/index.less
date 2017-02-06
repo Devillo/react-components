@@ -1,0 +1,174 @@
+@import '../../style/index.less';
+
+.@{prefix}pagination {
+
+  // 清楚浮动
+  &:after {
+    content: " ";
+    display: block;
+    height: 0px;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  // 分页基本样式
+  & > &-item {
+    cursor: pointer;
+    border-radius: 4px;
+    user-select: none;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    float: left;
+    list-style: none;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    margin-right: 8px;
+    font-family: Arial;
+
+    &:hover {
+      border-color: #108ee9;
+      > a {
+        color: #108ee9;
+      }
+    }
+
+    > a {
+      text-decoration: none;
+      color: #666;
+      transition: none;
+      margin: 0 6px;
+      font-size: 12px;
+    }
+
+    &-active {
+      border-color: #108ee9;
+      background-color: #108ee9;
+
+      > a {
+        color: #fff;
+      }
+
+      &:hover {
+        border-color: #108ee9;
+        > a {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &-prev, &-next, &-jump-prev, &-jump-next {
+    font-family: Arial;
+    cursor: pointer;
+    border-radius: 4px;
+    user-select: none;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    float: left;
+    list-style: none;
+    margin-right: 8px;
+    transition: all .3s;
+    display: inline-block;
+  }
+
+  &-prev, &-next {
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+
+    &:hover {
+      border-color: #108ee9;
+      > a {
+        color: #108ee9;
+      }
+    }
+
+    > a {
+      color: #666;
+
+      &:after {
+        font-size: 12px;
+      }
+
+      &:after {
+        filter: none;
+      }
+
+      &:after {
+        font-size: 12px;
+        font-family: 'iconfont';
+        transform: scale(0.667) rotate(0deg);
+        zoom: 1;
+        display: block;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+      }
+    }
+  }
+
+  &-prev {
+    > a {
+      &:after {
+        content: "\E717";
+        display: block;
+      }
+    }
+  }
+
+  &-next {
+    > a {
+      &:after {
+        content: "\E6e0";
+        display: block;
+      }
+    }
+  }
+
+  &-jump-prev, &-jump-next {
+    > a{
+      &:after {
+        content: "\2022\2022\2022";
+        font-size: 12px;
+        letter-spacing: 2px;
+        display: block;
+        color: #ccc;
+        text-align: center;
+      }
+    }
+  }
+
+  &-jump-prev:hover {
+    > a:after {
+        content: "\3C\3C";
+        color: #108ee9;
+      }
+  }
+
+  &-jump-next:hover {
+    > a:after {
+        content: "\3E\3E";
+        color: #108ee9;
+      }
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+
+    > a {
+      cursor: not-allowed;
+      color: #ccc;
+    }
+
+    &:hover {
+      border-color: #d9d9d9;
+      > a {
+        color: #ccc;
+      }
+    }
+  }
+}
